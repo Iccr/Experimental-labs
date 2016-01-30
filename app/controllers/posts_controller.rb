@@ -8,14 +8,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    binding.pry
-    post = Post.find(params[:id])
-    if post.save(post_params)
+
+    post = Post.new(post_params)
+    if post.save
       flash[:msg]= "post created"
     else
       flash[:msg]= "post failed"
     end
-    redirect_to root_path
+    redirect_to posts_path
   end
 
   def update
