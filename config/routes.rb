@@ -4,21 +4,21 @@ resources :posts
 
   get 'home/index'
 
-
+  root :to=> 'posts#index'
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
 
-  devise_scope :user do
-      authenticated :user do
-        root :to => 'posts#index'
-      end
-      unauthenticated :user do
-        root :to => 'home#index', as: :unauthenticated_root
-      end
-    end
+  # devise_scope :user do
+  #     authenticated :user do
+  #       root :to => 'posts#index'
+  #     end
+  #     unauthenticated :user do
+  #       root :to => 'home#index', as: :unauthenticated_root
+  #     end
+  #   end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
